@@ -11,20 +11,13 @@ export const VolumeControl: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center space-x-4">
-      <svg
-        className="w-6 h-6 text-gray-400"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={2}
-          d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"
-        />
-      </svg>
+    <div className="flex flex-col space-y-2 p-4 bg-white/80 backdrop-blur-sm rounded-xl border border-gray-200 shadow-sm">
+      <div className="flex items-center justify-between">
+        <label className="text-xs font-medium text-gray-600 tracking-wider">
+          VOLUME
+        </label>
+        <span className="text-xs font-mono text-gray-500">{volume}dB</span>
+      </div>
       <input
         type="range"
         min="-60"
@@ -32,9 +25,38 @@ export const VolumeControl: React.FC = () => {
         step="1"
         value={volume}
         onChange={handleVolumeChange}
-        className="w-32 h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer"
+        className="w-full h-1 bg-gray-200 rounded-full appearance-none cursor-pointer 
+          [&::-webkit-slider-thumb]:appearance-none
+          [&::-webkit-slider-thumb]:w-3.5
+          [&::-webkit-slider-thumb]:h-3.5
+          [&::-webkit-slider-thumb]:rounded-full
+          [&::-webkit-slider-thumb]:bg-gradient-to-br
+          [&::-webkit-slider-thumb]:from-blue-400
+          [&::-webkit-slider-thumb]:to-blue-600
+          [&::-webkit-slider-thumb]:shadow-md
+          [&::-webkit-slider-thumb]:shadow-blue-500/20
+          [&::-webkit-slider-thumb]:transition-all
+          [&::-webkit-slider-thumb]:duration-200
+          [&::-webkit-slider-thumb]:hover:scale-110
+          [&::-webkit-slider-thumb]:hover:shadow-blue-500/30
+          [&::-webkit-slider-thumb]:active:scale-95
+          [&::-webkit-slider-thumb]:active:shadow-blue-500/10
+          [&::-moz-range-thumb]:w-3.5
+          [&::-moz-range-thumb]:h-3.5
+          [&::-moz-range-thumb]:rounded-full
+          [&::-moz-range-thumb]:bg-gradient-to-br
+          [&::-moz-range-thumb]:from-blue-400
+          [&::-moz-range-thumb]:to-blue-600
+          [&::-moz-range-thumb]:border-0
+          [&::-moz-range-thumb]:shadow-md
+          [&::-moz-range-thumb]:shadow-blue-500/20
+          [&::-moz-range-thumb]:transition-all
+          [&::-moz-range-thumb]:duration-200
+          [&::-moz-range-thumb]:hover:scale-110
+          [&::-moz-range-thumb]:hover:shadow-blue-500/30
+          [&::-moz-range-thumb]:active:scale-95
+          [&::-moz-range-thumb]:active:shadow-blue-500/10"
       />
-      <span className="w-12 text-sm text-gray-400">{volume}dB</span>
     </div>
   );
 };

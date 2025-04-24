@@ -6,7 +6,7 @@ class AudioEngine {
   private initialized: boolean = false;
 
   constructor() {
-    this.volume = new Tone.Volume(-6).toDestination(); // デフォルト音量を-6dBに設定
+    this.volume = new Tone.Volume(-20).toDestination(); // デフォルト音量を-20dBに設定
     this.synth = new Tone.PolySynth().connect(this.volume);
   }
 
